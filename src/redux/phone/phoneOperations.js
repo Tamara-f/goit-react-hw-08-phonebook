@@ -14,31 +14,38 @@ import {
 
 axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
-const addContact = ({ name, number }) => dispatch => {
+const addContact = ({ name, number }) => async dispatch => {
   dispatch(addContactsRequest());
-  axios
-    .post('/contacts', {
+
+  try {
+    const { data } = await axios.post('/contacts', {
       name,
       number,
-    })
-    .then(({ data }) => dispatch(addContactsSuccess(data)))
-    .catch(error => dispatch(addContactsError(error)));
+    });
+    dispatch(addContactsSuccess(data));
+  } catch (error) {
+    dispatch(addContactsError(error));
+  }
 };
 
-const fetchContacts = () => dispatch => {
+const fetchContacts = () => async dispatch => {
   dispatch(fetchContactsRequest());
-  axios
-    .get('/contacts')
-    .then(({ data }) => dispatch(fetchContactsSuccess(data)))
-    .catch(error => dispatch(fetchContactsError(error)));
+  try {
+    const { data } = await axios.get('/contacts');
+    dispatch(fetchContactsSuccess(data));
+  } catch (error) {
+    dispatch(fetchContactsError(error));
+  }
 };
 
-const removeContact = id => dispatch => {
+const removeContact = id => async dispatch => {
   dispatch(removeContactsRequest());
-  axios
-    .delete(`/contacts/${id}`)
-    .then(() => dispatch(removeContactsSuccess(id)))
-    .catch(error => dispatch(removeContactsError(error)));
+  try {
+    await axios.delete(`/contacts/${id}`);
+    dispatch(removeContactsSuccess(id));
+  } catch (error) {
+    dispatch(removeContactsError(error));
+  }
 };
 
 export default { addContact, fetchContacts, removeContact };

@@ -12,28 +12,27 @@ const token = {
   },
 };
 
-const register = credentials => dispatch => {
+const register = credentials => async dispatch => {
   dispatch(authActions.registerRequest());
 
-  axios
-    .post('/users/signup', credentials)
-    .then(response => {
-      token.set(response.data.token);
-      dispatch(authActions.registerSuccess(response.data));
-    })
-    .catch(error => dispatch(authActions.registerError(error)));
+  try {
+    const { data } = await axios.post('/users/signup', credentials);
+    dispatch(authActions.registerSuccess(data));
+  } catch (error) {
+    dispatch(authActions.registerError(error));
+  }
 };
 
-const logIn = credentials => dispatch => {
+const logIn = credentials => async dispatch => {
   dispatch(authActions.loginRequest());
+  try {
+    const { data } = await axios.post('/users/login', credentials);
 
-  axios
-    .post('/users/login', credentials)
-    .then(response => {
-      token.set(response.data.token);
-      dispatch(authActions.loginSuccess(response.data));
-    })
-    .catch(error => dispatch(authActions.loginError(error)));
+    token.set(data.token);
+    dispatch(authActions.loginSuccess(data));
+  } catch (error) {
+    dispatch(authActions.loginError(error));
+  }
 };
 
 const getCurrentUser = () => (dispatch, getState) => {
@@ -54,16 +53,15 @@ const getCurrentUser = () => (dispatch, getState) => {
     .catch(error => authActions.getCurrentUserError(error));
 };
 
-const logOut = () => dispatch => {
+const logOut = () => async dispatch => {
   dispatch(authActions.logoutRequest());
-
-  axios
-    .post('/users/logout')
-    .then(() => {
-      token.unset();
-      dispatch(authActions.logoutSuccess());
-    })
-    .catch(error => dispatch(authActions.logoutError(error)));
+  try {
+    const { data } = await axios.post('/users/logout');
+    token.unset();
+    dispatch(authActions.logoutSuccess(data));
+  } catch (error) {
+    dispatch(authActions.logoutError(error));
+  }
 };
 
 export default { register, logOut, logIn, getCurrentUser };

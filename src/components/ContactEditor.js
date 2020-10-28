@@ -16,8 +16,8 @@ class ContactEditor extends Component {
   handleChange = ({ target }) => {
     const { name, value } = target;
 
-    const findNotUnic = NotUnicName(this.props.items, value);
-    if (findNotUnic) {
+    const isNotUnic = NotUnicName(this.props.items, value);
+    if (isNotUnic) {
       alert(`${value} is already in contacts!!!`);
     } else
       this.setState({
