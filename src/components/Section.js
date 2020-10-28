@@ -7,7 +7,6 @@ function Section({ children }) {
   return (
     <section>
       <AppBar />
-
       <hr />
       {children}
     </section>
