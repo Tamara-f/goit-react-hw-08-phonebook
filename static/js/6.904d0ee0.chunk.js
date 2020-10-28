@@ -1,0 +1,2 @@
+(this["webpackJsonpgoit-react-hw-08"]=this["webpackJsonpgoit-react-hw-08"]||[]).push([[6],{83:function(e,t,n){"use strict";n.r(t);var c=n(0),a=n.n(c);t.default=function(){return a.a.createElement("div",{style:{textAlign:"center"}},"Phonebook",a.a.createElement("br",null),a.a.createElement("img",{src:"https://www.desicomments.com/wp-content/uploads/2017/07/Hey-Hi-Hello.jpg",alt:"img"}))}}}]);
+//# sourceMappingURL=6.904d0ee0.chunk.js.map
