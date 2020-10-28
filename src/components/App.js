@@ -3,6 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Section from './Section';
+import PublicRoute from './PublicRoute';
+import PrivateRoute from './PrivateRoute';
 import routes from '../routes';
 import { authOperations } from '../redux/auth';
 
@@ -17,9 +19,13 @@ class App extends Component {
         <Section>
           <Suspense fallback={<h1>Loading...</h1>}>
             <Switch>
-              {routes.map(route => (
-                <Route key={route.path} {...route} />
-              ))}
+              {routes.map(route =>
+                route.private ? (
+                  <PrivateRoute key={route.label} {...route} />
+                ) : (
+                  <PublicRoute key={route.label} {...route} />
+                ),
+              )}
             </Switch>
           </Suspense>
         </Section>
