@@ -32,6 +32,7 @@ const logIn = credentials => async dispatch => {
     dispatch(authActions.loginSuccess(data));
   } catch (error) {
     dispatch(authActions.loginError(error));
+    alert('Incorrect login or password');
   }
 };
 
