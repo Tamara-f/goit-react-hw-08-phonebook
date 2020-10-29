@@ -1,13 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import LockIcon from '@material-ui/icons/Lock';
+
 const AuthNav = () => (
   <>
     <NavLink to="/register" className="nav" activeClassName="active-nav">
-      Register
+      <PersonAddIcon />
+      <span> Register</span>
     </NavLink>
     <NavLink to="/login" className="nav" activeClassName="active-nav">
-      Login
+      <LockIcon />
+      <span>Login</span>
     </NavLink>
   </>
 );

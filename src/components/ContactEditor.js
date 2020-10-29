@@ -56,6 +56,7 @@ class ContactEditor extends Component {
               name="number"
             />
           </label>
+
           <button type="submit">Add contact</button>
         </form>
       </>

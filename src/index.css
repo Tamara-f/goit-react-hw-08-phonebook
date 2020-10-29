@@ -11,6 +11,10 @@ body {
   line-height: 1;
 }
 
+span,
+svg {
+  vertical-align: middle;
+}
 .nav {
   margin-right: 10px;
   text-decoration: none;
@@ -29,7 +33,6 @@ form {
   border: 1px solid #4caf50;
 }
 button {
-  margin-bottom: 5px;
   background-color: #4caf50;
   border: none;
   color: white;
@@ -43,6 +46,15 @@ input {
   margin: 10px 0 10px;
 }
 
-span {
-  margin-right: 15px;
+li {
+  list-style: none;
+  height: 55px;
+}
+
+.name {
+  padding: 15px;
+}
+ul {
+  margin-top: 20px;
+  padding: 0;
 }

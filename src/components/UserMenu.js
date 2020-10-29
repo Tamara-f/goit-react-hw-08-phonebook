@@ -1,20 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+
 import { authSelectors, authOperations } from '../redux/auth';
 
 const styles = {
-  img: {
-    marginRight: '10px',
-  },
+  marginRight: '10px',
 };
 
 const UserMenu = ({ avatar, name, onLogout }) => (
   <>
-    <img style={styles.img} src={avatar} alt="" width="32" />
-    <span> Welcome, {name}</span>
-    <button type="button" onClick={onLogout}>
+    <img style={styles} src={avatar} alt="" width="32" />
+    <span style={styles}> Welcome, {name}</span>
+    <Button
+      variant="contained"
+      size="small"
+      color="secondary"
+      onClick={onLogout}
+    >
       Logout
-    </button>
+    </Button>
   </>
 );
 

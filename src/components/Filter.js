@@ -9,7 +9,7 @@ const Filter = ({ contacts, value, onChangeFilter }) => {
   if (contacts.length > 0) {
     return (
       <div>
-        <span>Find name</span>
+        <span>Find name: </span>
         <input
           type="text"
           value={value}

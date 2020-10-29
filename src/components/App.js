@@ -2,6 +2,8 @@ import React, { Component, Suspense } from 'react';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import Section from './Section';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
@@ -17,7 +19,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Section>
-          <Suspense fallback={<h1>Loading...</h1>}>
+          <Suspense
+            fallback={
+              <h1>
+                <CircularProgress />
+              </h1>
+            }
+          >
             <Switch>
               {routes.map(route =>
                 route.private ? (

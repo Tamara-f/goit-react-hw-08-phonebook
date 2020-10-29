@@ -18,7 +18,7 @@ class Contacts extends Component {
     return (
       <>
         <ContactEditor />
-        {/* {this.props.isLoadingContacts && <h1>Doing HTTP stuff...</h1>} */}
+
         <h2>Contacts</h2>
         <Filter />
         <ContactList />
@@ -26,11 +26,6 @@ class Contacts extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => ({
-//   // isLoadingContacts: phoneSelectors.getLoading(state),
-//   isAuthenticated: authSelectors(state),
-// });
 
 const mapDispatchToProps = {
   onFetchContacts: phoneOperations.fetchContacts,
