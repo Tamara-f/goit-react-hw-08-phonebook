@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import phoneOperations from '../redux/phone/phoneOperations';
-import Snackbars from '../components/Snackbar';
+// import Snackbars from '../components/Snackbar';
+import Alert from '@material-ui/lab/Alert';
 
 class ContactEditor extends Component {
   state = {
@@ -18,16 +19,12 @@ class ContactEditor extends Component {
       contact => contact.name === value,
     );
     if (isNotUnicName) {
-      this.setState({
-        unic: false,
-      });
+      this.setState({ unic: false });
     } else {
       this.setState({
         [name]: value,
       });
-      this.setState({
-        unic: true,
-      });
+      this.setState({ unic: true });
     }
   };
 
@@ -52,6 +49,9 @@ class ContactEditor extends Component {
               name="name"
             />
           </label>
+          {!unic && (
+            <Alert severity="error">This name is already in contacts!</Alert>
+          )}
           <label htmlFor="number">
             Number
             <br />
@@ -65,7 +65,6 @@ class ContactEditor extends Component {
 
           <button type="submit">Add contact</button>
         </form>
-        {!unic && <Snackbars />}
       </>
     );
   }
