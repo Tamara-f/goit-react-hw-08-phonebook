@@ -2,27 +2,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import phoneOperations from '../redux/phone/phoneOperations';
-
-const NotUnicName = (allContacts, newName) => {
-  return allContacts.find(contact => contact.name === newName);
-};
+import Snackbars from '../components/Snackbar';
 
 class ContactEditor extends Component {
   state = {
     name: '',
     number: '',
+    unic: true,
   };
 
   handleChange = ({ target }) => {
     const { name, value } = target;
 
-    const isNotUnic = NotUnicName(this.props.items, value);
-    if (isNotUnic) {
-      alert(`${value} is already in contacts!!!`);
-    } else
+    const isNotUnicName = this.props.items.find(
+      contact => contact.name === value,
+    );
+    if (isNotUnicName) {
+      this.setState({
+        unic: false,
+      });
+    } else {
       this.setState({
         [name]: value,
       });
+      this.setState({
+        unic: true,
+      });
+    }
   };
 
   handleSubmit = e => {
@@ -31,7 +37,7 @@ class ContactEditor extends Component {
   };
 
   render() {
-    const { name, number } = this.state;
+    const { name, number, unic } = this.state;
     return (
       <>
         <h2>Phonebook</h2>
@@ -59,6 +65,7 @@ class ContactEditor extends Component {
 
           <button type="submit">Add contact</button>
         </form>
+        {!unic && <Snackbars />}
       </>
     );
   }
