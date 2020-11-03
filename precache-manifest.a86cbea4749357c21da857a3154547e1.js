@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ceae23510900c43068d590e14fdcc175",
+    "revision": "c315375bd32f8647b94ff9cdf9485291",
     "url": "/goit-react-hw-08-phonebook/index.html"
   },
   {
-    "revision": "dd020c98883ace9f037c",
-    "url": "/goit-react-hw-08-phonebook/static/css/main.f167bd6e.chunk.css"
+    "revision": "c9a6db48c6f0b4912d8d",
+    "url": "/goit-react-hw-08-phonebook/static/css/main.27d2c09e.chunk.css"
   },
   {
     "revision": "778f0591ae45f8afd3db",
@@ -28,19 +28,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/goit-react-hw-08-phonebook/static/js/5.d8706238.chunk.js"
   },
   {
-    "revision": "d81cf04d651447d8a573",
-    "url": "/goit-react-hw-08-phonebook/static/js/6.fa66ec60.chunk.js"
+    "revision": "96c5a863a8c648dcfc10",
+    "url": "/goit-react-hw-08-phonebook/static/js/6.743ca2d3.chunk.js"
   },
   {
     "revision": "3aa43958b153ddf1b361",
     "url": "/goit-react-hw-08-phonebook/static/js/7.30ee06df.chunk.js"
   },
   {
-    "revision": "dd020c98883ace9f037c",
+    "revision": "c9a6db48c6f0b4912d8d",
     "url": "/goit-react-hw-08-phonebook/static/js/main.b68a3bef.chunk.js"
   },
   {
-    "revision": "96b4fc73842c90dd9f4b",
-    "url": "/goit-react-hw-08-phonebook/static/js/runtime-main.a67544cb.js"
+    "revision": "6c2a0453595e7e7bf3a8",
+    "url": "/goit-react-hw-08-phonebook/static/js/runtime-main.c9c619d3.js"
   }
 ]);
