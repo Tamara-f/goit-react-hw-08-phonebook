@@ -23,12 +23,14 @@ const ContactListItem = ({ name, number, onRemove }) => {
       <Box
         display="flex"
         justifyContent="space-between"
+        alignItems="center"
         width="500px"
         boxShadow={1}
+        margin="10px 0"
       >
-        <span className="name">
+        <p className="name">
           {name}: {number}
-        </span>
+        </p>
 
         <Button
           variant="contained"
